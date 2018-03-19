@@ -3,3 +3,6 @@ Lib
 Scripts
 tcl
 pip-selfcheck.json
+instance
+.vscode
+__pycache__
