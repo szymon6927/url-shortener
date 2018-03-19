@@ -14,16 +14,13 @@ def create_app(config_name):
     app.config.from_pyfile('config.py')
     db.init_app(app)
 
-    @app.route('/')
-    def hello_world():
-        return 'Hello, World!'
-
-    @app.route('/user/<username>')
-    def show_user_profile(username):
-        # show the user profile for that user
-        return 'User %s' % username
-
     migrate = Migrate(app, db)
     from app import models
+
+    from .home import home as home_blueprint
+    app.register_blueprint(home_blueprint)
+    
+    from .customers import customers as customers_blueprint
+    app.register_blueprint(customers_blueprint)
 
     return app
