@@ -9,7 +9,6 @@ class DevelopmentConfig(Config):
     """
     Development configurations
     """
-
     DEBUG = True
     SQLALCHEMY_ECHO = True
     SQLALCHEMY_TRACK_MODIFICATIONS = False

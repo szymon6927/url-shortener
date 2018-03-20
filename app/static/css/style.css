@@ -1,0 +1,22 @@
+.url-shorenter-section  {
+    width: 35%;
+    margin: 0 auto;
+}
+
+.card .card-content {
+    padding: 18px;
+}
+
+.shorted-link {
+    text-align: center;
+    background: #cacaca;
+    padding: 5px;
+}
+
+
+
+@media (max-width: 767px) {
+    .url-shorenter-section  {
+        width: initial;
+    }   
+}
