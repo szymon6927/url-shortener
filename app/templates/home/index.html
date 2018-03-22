@@ -17,6 +17,13 @@
 </div>
 <div class="container">
   <div class="url-shorenter-section">
+    
+    <div id="card-alert" class="card red" style="{{ 'display:block' if  error  else 'display:none' }}">
+      <div class="card-content white-text">
+        <p class="center-align"><i class="mdi-alert-error"></i> {{ error }}</p>
+      </div>
+    </div>
+    
     <div class="row">
       <form id="link-form" method="POST" class="col s12">
         <div class="row">

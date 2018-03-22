@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 
 # local imports
@@ -22,5 +22,11 @@ def create_app(config_name):
     
     from .customers import customers as customers_blueprint
     app.register_blueprint(customers_blueprint)
+
+    @app.errorhandler(404)
+    def page_not_found(error):
+        # This function handles all 404 error on the app and shows a custom 404
+        # error page.
+        return render_template('404.html', error=404)
 
     return app

@@ -13,6 +13,20 @@
     padding: 5px;
 }
 
+div.error { display: none; }
+
+.input-field div.error {
+    position: relative;
+    top: -1rem;
+    left: 0rem;
+    font-size: 0.8rem;
+    color: #ff4040;
+    -webkit-transform: translateY(0%);
+    -ms-transform: translateY(0%);
+    -o-transform: translateY(0%);
+    transform: translateY(0%);
+}
+
 
 
 @media (max-width: 767px) {

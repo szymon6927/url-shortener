@@ -47,3 +47,11 @@ def url_checker(long_url):
         return False
     else:
         return False
+
+
+def number_of_generated_short_url():
+    # This function counts how many short URL is stored in the database at a
+    # moment.
+
+    number = Urls.query.count()
+    return number
