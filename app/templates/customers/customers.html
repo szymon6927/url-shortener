@@ -3,6 +3,26 @@
 
 {% block body %}
 <div class="container">
-  <h1>{{ title }} Customers</h1>
+  <h3 class="center-align">{{ title }}</h3>
+  <table class="responsive-table highlight mb24">
+    <thead>
+      <tr>
+          <th>Nr. tel</th>
+          <th>Skrócony link</th>
+          <th>Długi link</th>
+          <th>Utworzono</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for customer in customers %}
+        <tr>
+          <td>{{ customer.phone }}</td>
+          <td>{{ customer.shorted_url }}</td>
+          <td>{{ customer.redirect_url }}</td>
+          <td>{{ customer.created_at }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 </div>
 {% endblock %}
