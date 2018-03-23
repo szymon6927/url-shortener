@@ -1,6 +1,7 @@
 import datetime
 from app import db
 
+
 class Customers(db.Model):
     """
     Create an Customers table
@@ -18,6 +19,7 @@ class Customers(db.Model):
     def __repr__(self):
         return '<Customers: {}>'.format(self.phone)
 
+
 class Openned(db.Model):
     """
     Create a table for opened links
@@ -29,4 +31,4 @@ class Openned(db.Model):
     customer_id = db.Column(db.Integer)
     customer_hash = db.Column(db.String(60))
     customer_ip = db.Column(db.String(30))
-    open_time =  db.Column(db.DateTime, default=datetime.datetime.now)
+    open_time = db.Column(db.DateTime, default=datetime.datetime.now)
