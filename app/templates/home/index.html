@@ -47,9 +47,18 @@
               </div>
             </div>
           </div>
-        </div>
-              
+        </div> 
       </form>
+      
+
+      <div class="col s12 m12">
+        <!-- Target -->
+        <input id="copy-input" value="https://github.com/zenorocha/clipboard.js.gitxxx">
+        <!-- Trigger -->
+        <button class="btn copy" data-clipboard-target="#copy-input">
+            <img class="clippy-img" src="{{ url_for('static', filename='img/clippy.svg') }}" alt="Copy to clipboard">
+        </button>
+      </div>
     </div>
   </div>
 </div>
