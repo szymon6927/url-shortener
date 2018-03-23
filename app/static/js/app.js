@@ -1,4 +1,5 @@
 $(document).ready(function () {  
+  new ClipboardJS('.btn');
 
   var form = $("#link-form");
 
