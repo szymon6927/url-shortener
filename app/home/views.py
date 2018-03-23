@@ -1,4 +1,5 @@
 import json
+import os
 
 from flask import request, flash, render_template, abort, redirect
 
@@ -10,13 +11,17 @@ from ..models import Openned
 
 from .. import utils
 
-HOST_NAME = "http://127.0.0.1:5000/"
+if os.environ['FLASK_CONFIG'] == "development":
+    HOST_NAME = "http://127.0.0.1:5000/"
+else:
+    HOST_NAME = "http://sekowski-url-shortener.herokuapp.com/"
 
 @home.route('/')
 def homepage():
     """
     Render the homepage template on the / route
     """
+
     return render_template('home/index.html', title="Welcome")
 
 @home.route('/addLink', methods=['POST'])
