@@ -2,12 +2,12 @@ import datetime
 from app import db
 
 
-class Customers(db.Model):
+class Links(db.Model):
     """
-    Create an Customers table
+    Create an Links table
     """
 
-    __tablename__ = 'customers'
+    __tablename__ = 'links'
 
     id = db.Column(db.Integer, primary_key=True, unique=True)
     hash = db.Column(db.String(60), unique=True)
@@ -17,7 +17,7 @@ class Customers(db.Model):
     created_at = db.Column(db.DateTime, default=datetime.datetime.now)
 
     def __repr__(self):
-        return '<Customers: {}>'.format(self.phone)
+        return '<Links: {}>'.format(self.phone)
 
 
 class Openned(db.Model):
@@ -28,7 +28,9 @@ class Openned(db.Model):
     __tablename__ = 'openned'
 
     id = db.Column(db.Integer, primary_key=True, unique=True)
-    customer_id = db.Column(db.Integer)
-    customer_hash = db.Column(db.String(60))
-    customer_ip = db.Column(db.String(30))
+    link_id = db.Column(db.Integer)
+    link_hash = db.Column(db.String(60))
+    ip = db.Column(db.String(30))
+    ga_client_id = db.Column(db.String(100))
+    client_phone = db.Column(db.String(21))
     open_time = db.Column(db.DateTime, default=datetime.datetime.now)
