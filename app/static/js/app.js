@@ -1,4 +1,5 @@
-$(document).ready(function () {  
+$(document).ready(function () {
+
   new ClipboardJS('.btn');
 
   var form = $("#link-form");
@@ -34,11 +35,11 @@ $(document).ready(function () {
   });
 
   $('#link-form').submit(function (event) {
-    if(form.valid()) {
+    if (form.valid()) {
       event.preventDefault();
-      let phone = $('#phone').val();
-      let link = $('#url_to_short').val();
-  
+      var phone = $('#phone').val();
+      var link = $('#url_to_short').val();
+
       $.ajax({
         type: "POST",
         url: "/addLink",
@@ -47,7 +48,7 @@ $(document).ready(function () {
           link: link
         },
         success: function (data) {
-          data = JSON.parse(data)
+          data = JSON.parse(data);
           $('#card-alert').hide();
           $('.shorted-link').html('<span>' + data.info + '</span>');
         },
