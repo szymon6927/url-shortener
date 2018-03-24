@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Opened{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h3 class="center-align">{{ title }}</h3>
+        <table class="responsive-table highlight mb24">
+            <thead>
+            <tr>
+                <th>Kiedy otwarty</th>
+                <th>Telefon</th>
+                <th>GA Client ID</th>
+                <th>Link hash</th>
+                <th>IP</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for open in opened %}
+                <tr>
+                    <td>{{ open.open_time }}</td>
+                    <td>{{ open.client_phone }}</td>
+                    <td>{{ open.ga_client_id }}</td>
+                    <td>{{ open.link_hash }}</td>
+                    <td>{{ open.ip }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
