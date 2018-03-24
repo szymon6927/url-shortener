@@ -1,13 +1,15 @@
 from flask import render_template
 
-from . import customers 
-from ..models import Customers
+from . import customers
+from ..models import Links
+
 
 @customers.route('/all')
 def all_customers():
     """
     Render the cutomers template on the / route
     """
-    all_customers = Customers.query.all()
+    all_links = Links.query.all()
 
-    return render_template('customers/customers.html', title="Tabela wszystkim utworzonych linkow dla klientów", customers=all_customers)
+    return render_template('customers/customers.html', title="Tabela wszystkim utworzonych linkow dla klientów",
+                           customers=all_links)
