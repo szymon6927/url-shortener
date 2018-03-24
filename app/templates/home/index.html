@@ -1,65 +1,56 @@
 {% extends "base.html" %} {% block title %}Home{% endblock %} {% block body %}
-<div class="section no-pad-bot" id="index-banner">
-  <div class="container">
-    <br>
-    <br>
-    <h1 class="header center orange-text">Skracasz linków</h1>
-    <div class="row center">
-      <h5 class="header col s12 light">Dla kajakisekowski.pl</h5>
-    </div>
-    <br>
-    <br>
-
-  </div>
-</div>
-<div class="container">
-  <div class="url-shorenter-section">
-    
-    <div id="card-alert" class="card red" style="{{ 'display:block' if  error  else 'display:none' }}">
-      <div class="card-content white-text">
-        <p class="center-align"><i class="mdi-alert-error"></i> {{ error }}</p>
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br>
+      <br>
+      <h1 class="header center orange-text">Skracasz linków</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">Dla kajakisekowski.pl</h5>
       </div>
+      <br>
+      <br>
+
     </div>
-    
-    <div class="row">
-      <form id="link-form" method="POST" class="col s12">
-        <div class="row">
-          <div class="input-field col s12">
-            <input id="phone" name="phone" type="text" class="validate">
-            <label for="phone">Phone</label>
+  </div>
+  <div class="container">
+    <div class="url-shorenter-section">
+
+      <div id="card-alert" class="card red" style="{{ 'display:block' if  error  else 'display:none' }}">
+        <div class="card-content white-text">
+          <p class="center-align"><i class="mdi-alert-error"></i> {{ error }}</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <form id="link-form" method="POST" class="col s12">
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="phone" name="phone" type="text" class="validate">
+              <label for="phone">Phone</label>
+            </div>
+            <div class="input-field col s12">
+              <input id="url_to_short" name="url_to_short" type="text" class="validate">
+              <label for="url_to_short">Url to short</label>
+            </div>
+            <div class="col s12 center-align">
+              <button class="btn waves-effect waves-light" type="submit">Skróć
+                <i class="material-icons right">send</i>
+              </button>
+            </div>
           </div>
-          <div class="input-field col s12">
-            <input id="url_to_short" name="url_to_short" type="text" class="validate">
-            <label for="url_to_short">Url to short</label>
-          </div>
-          <div class="col s12 center-align">
-            <button class="btn waves-effect waves-light" type="submit">Skróć
-              <i class="material-icons right">send</i>
+        </form>
+
+
+        <div class="col s12 m12">
+          <div class="copy-input-wrapper">
+            <input id="copy-input" value="">
+            <button class="btn copy" data-clipboard-target="#copy-input"
+                    onclick="Materialize.toast('Link skopiowany', 4000)">
+              <img class="clippy-img" src="{{ url_for('static', filename='img/clippy.svg') }}" alt="Copy to clipboard">
             </button>
           </div>
         </div>
-        
-        <div class="row">
-          <div class="col s12 m12">
-            <div class="card light-green darken-2">
-              <div class="card-content white-text">
-                <p class="shorted-link">http://localhost/12623fds6</p>
-              </div>
-            </div>
-          </div>
-        </div> 
-      </form>
-      
-
-      <div class="col s12 m12">
-        <!-- Target -->
-        <input id="copy-input" value="https://github.com/zenorocha/clipboard.js.gitxxx">
-        <!-- Trigger -->
-        <button class="btn copy" data-clipboard-target="#copy-input">
-            <img class="clippy-img" src="{{ url_for('static', filename='img/clippy.svg') }}" alt="Copy to clipboard">
-        </button>
       </div>
     </div>
   </div>
-</div>
 {% endblock %}

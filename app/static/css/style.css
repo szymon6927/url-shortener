@@ -43,7 +43,13 @@ div.error { display: none; }
     vertical-align: sub;
 }
 
+.copy-input-wrapper {
+    padding: 10px;
+    background-color: #cacaca;
+}
+
 #copy-input {
+    background-color: #fff;
     margin-bottom: 0;
     height: 30px;
     font-size: 13px;

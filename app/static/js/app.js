@@ -1,3 +1,8 @@
+function clearForm(form) {
+  form.find("#phone").val('');
+  form.find("#url_to_short").val('');
+}
+
 $(document).ready(function () {
 
   new ClipboardJS('.btn');
@@ -50,7 +55,9 @@ $(document).ready(function () {
         success: function (data) {
           data = JSON.parse(data);
           $('#card-alert').hide();
-          $('.shorted-link').html('<span>' + data.info + '</span>');
+          $('#copy-input').val(data.info);
+
+          clearForm(form);
         },
         error: function (data) {
           $('#card-alert').hide();
