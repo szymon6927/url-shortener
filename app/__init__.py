@@ -24,6 +24,9 @@ def create_app(config_name):
     from .customers import customers as customers_blueprint
     app.register_blueprint(customers_blueprint)
 
+    from .opened import opened as opened_blueprint
+    app.register_blueprint(opened_blueprint)
+
     @app.errorhandler(404)
     def page_not_found(error):
         # This function handles all 404 error on the app and shows a custom 404
