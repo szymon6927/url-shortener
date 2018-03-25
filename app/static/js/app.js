@@ -45,6 +45,9 @@ $(document).ready(function () {
       var phone = $('#phone').val();
       var link = $('#url_to_short').val();
 
+      $('.ajax-info').show();
+      $('.ajax-info .ajax-text span').html('Link jest generowany !');
+
       $.ajax({
         type: "POST",
         url: "/addLink",
@@ -54,6 +57,9 @@ $(document).ready(function () {
         },
         success: function (data) {
           data = JSON.parse(data);
+
+          $('.ajax-info').hide();
+
           $('#card-alert').hide();
           $('#copy-input').val(data.info);
 
