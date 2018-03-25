@@ -2,6 +2,7 @@ import json
 import os
 
 from flask import request, flash, render_template, abort, redirect
+from flask import Response, make_response
 
 from . import home
 
@@ -65,19 +66,6 @@ def redirect_to_templte(short_url):
     return render_template('redirect/index.html', title="Przekierowanie", text="Trwa przekierowanie",
                            hash=customer.hash)
 
-    # if request.headers.getlist("X-Forwarded-For"):
-    #     ip = request.headers.getlist("X-Forwarded-For")[0]
-    # else:
-    #     ip = request.remote_addr
-    #
-    # open = Openned(customer_id=customer.id,
-    #             customer_hash=customer.hash,
-    #             customer_ip=ip)
-    # db.session.add(open)
-    # db.session.commit()
-    #
-    # return redirect(customer.redirect_url)
-
 
 @home.route('/redirect', methods=['POST'])
 def redirect_to_url():
@@ -99,4 +87,4 @@ def redirect_to_url():
     db.session.add(open_link)
     db.session.commit()
 
-    return redirect(link.redirect_url)
+    return json.dumps({'info': link.redirect_url})

@@ -23,7 +23,7 @@ function runAjax() {
     },
     success: function (data) {
       data = JSON.parse(data);
-      console.log(data.info);
+      window.location.replace(data.info);
     },
     error: function (data) {
       console.log(data);
@@ -32,5 +32,7 @@ function runAjax() {
 }
 
 $(document).ready(function () {
-  check_ga();
+  setTimeout(function () {
+    check_ga();
+  }, 1000)
 });
