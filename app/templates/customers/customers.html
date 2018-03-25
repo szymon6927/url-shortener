@@ -14,7 +14,7 @@
       </tr>
     </thead>
     <tbody>
-      {% for customer in customers %}
+      {% for customer in customers|sort(attribute='created_at', reverse = True) %}
         <tr>
           <td>{{ customer.phone }}</td>
           <td>{{ customer.shorted_url }}</td>

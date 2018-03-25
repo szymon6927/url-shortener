@@ -66,11 +66,46 @@ $(document).ready(function () {
           clearForm(form);
         },
         error: function (data) {
-          $('#card-alert').hide();
+          $('#card-alert').show();
           $('#card-alert .card-content').html(data)
         }
       })
     }
 
   });
-})
+});
+
+
+$(window).bind("load", function () {
+
+  var footerHeight = 0,
+    footerTop = 0,
+    $footer = $(".page-footer");
+
+  positionFooter();
+
+  function positionFooter() {
+    footerHeight = $footer.height();
+    // 20 is as padding height
+    footerTop = ($(window).scrollTop() + $(window).height() - footerHeight - 20) + "px";
+
+    if (($(document.body).height() + footerHeight) < $(window).height()) {
+      $footer.css({
+        position: "absolute",
+        width: "100%"
+      }).animate({
+        top: footerTop
+      })
+    }
+    else {
+      $footer.css({
+        position: "static"
+      })
+    }
+
+  }
+
+  $(window)
+    .scroll(positionFooter)
+    .resize(positionFooter)
+});
