@@ -101,6 +101,14 @@ select {
     padding-bottom: 20px;
 }
 
+nav ul a {
+    color: #222;
+}
+
+nav a {
+    color: #222;
+}
+
 @media (max-width: 1024px) {
     .url-shorenter-section {
         width: initial;
