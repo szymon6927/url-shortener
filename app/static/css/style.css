@@ -2,6 +2,10 @@
     margin-bottom: 24px;
 }
 
+.wrapper {
+    padding-top: 40px;
+}
+
 .url-shorenter-section {
     width: 35%;
     margin: 0 auto;
@@ -77,8 +81,39 @@ div.error {
     font-size: 17px;
 }
 
+#copy-input:focus {
+    border: 1px solid #26a69a;
+}
+
+#copy-input:active {
+    border: 1px solid #26a69a;
+}
+
+.page-footer {
+    padding-top: 0;
+}
+
 @media (max-width: 767px) {
     .url-shorenter-section {
         width: initial;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-footer p {
+        margin: 0;
+    }
+    #copy-input {
+        width: 75%;
+    }
+    .clippy-img {
+        padding-top: 8px;
+    }
+    .brand-logo img {
+        width: 85%;
+    }
+    h1.header {
+        margin: 0;
+        font-size: 3rem;
     }
 }

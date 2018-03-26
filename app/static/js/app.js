@@ -5,6 +5,10 @@ function clearForm(form) {
 
 $(document).ready(function () {
 
+  $('#phone').mask('000-000-000');
+
+  $(".button-collapse").sideNav();
+
   new ClipboardJS('.btn');
 
   var form = $("#link-form");
@@ -87,7 +91,7 @@ $(window).bind("load", function () {
   function positionFooter() {
     footerHeight = $footer.height();
     // 20 is as padding height
-    footerTop = ($(window).scrollTop() + $(window).height() - footerHeight - 20) + "px";
+    footerTop = ($(window).scrollTop() + $(window).height() - footerHeight) + "px";
 
     if (($(document.body).height() + footerHeight) < $(window).height()) {
       $footer.css({
