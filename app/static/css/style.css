@@ -93,7 +93,15 @@ div.error {
     padding-top: 0;
 }
 
-@media (max-width: 767px) {
+select {
+    display: block;
+}
+
+.dataTables_wrapper {
+    padding-bottom: 20px;
+}
+
+@media (max-width: 1024px) {
     .url-shorenter-section {
         width: initial;
     }

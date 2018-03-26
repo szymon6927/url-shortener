@@ -5,6 +5,21 @@ function clearForm(form) {
 
 $(document).ready(function () {
 
+  $('#customers').DataTable({
+    "order": [[ 1, "desc" ]],
+    responsive: true,
+    scrollY:        '60vh',
+    scrollCollapse: true,
+    paging:         false
+  });
+  $('#opened').DataTable({
+    "order": [[ 0, "desc" ]],
+    responsive: true,
+    scrollY:        '60vh',
+    scrollCollapse: true,
+    paging:         false
+  });
+
   $('#phone').mask('000-000-000');
 
   $(".button-collapse").sideNav();
