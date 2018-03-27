@@ -1,19 +1,28 @@
 <nav class="grey lighten-5" role="navigation">
-    <div class="nav-wrapper container">
-        <a id="logo-container" href="{{ url_for('home.homepage') }}" class="brand-logo">
-            <img src="{{ url_for('static', filename='img/logo.png') }}" alt="logo"/>
-        </a>
-        <ul class="right hide-on-med-and-down">
-            <li><a href="{{ url_for('home.homepage') }}">Home</a></li>
-            <li><a href="{{ url_for('customers.all_customers') }}">Customers</a></li>
-            <li><a href="{{ url_for('opened.opened') }}">Opened</a></li>
-        </ul>
+  <div class="nav-wrapper container">
+    <a id="logo-container" href="{{ url_for('home.homepage') }}" class="brand-logo">
+      <img src="{{ url_for('static', filename='img/logo.png') }}" alt="logo"/>
+    </a>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="{{ url_for('home.homepage') }}">Home</a></li>
+      <li><a href="{{ url_for('customers.all_customers') }}">Customers</a></li>
+      <li><a href="{{ url_for('opened.opened') }}">Opened</a></li>
+      <li><a href="{{ url_for('auth.login') }}">Login</a></li>
+      <li><a href="{{ url_for('auth.register') }}">Register</a></li>
+      {% if current_user.is_authenticated %}
+        <li><a><i class="material-icons left">account_circle</i>  Hi, {{ current_user.username }}!</a></li>
+        <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
+      {% else %}
+      {% endif %}
+    </ul>
 
-        <ul id="nav-mobile" class="side-nav" style="transform: translateX(-100%);">
-            <li><a href="{{ url_for('home.homepage') }}">Home</a></li>
-            <li><a href="{{ url_for('customers.all_customers') }}">Customers</a></li>
-            <li><a href="{{ url_for('opened.opened') }}">Opened</a></li>
-        </ul>
-        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-    </div>
+    <ul id="nav-mobile" class="side-nav" style="transform: translateX(-100%);">
+      <li><a href="{{ url_for('home.homepage') }}">Home</a></li>
+      <li><a href="{{ url_for('customers.all_customers') }}">Customers</a></li>
+      <li><a href="{{ url_for('opened.opened') }}">Opened</a></li>
+      <li><a href="{{ url_for('auth.login') }}">Login</a></li>
+      <li><a href="{{ url_for('auth.register') }}">Register</a></li>
+    </ul>
+    <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+  </div>
 </nav>
