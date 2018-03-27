@@ -109,6 +109,12 @@ nav a {
     color: #222;
 }
 
+.form-error p span {
+    padding-left: 15px;
+    position: relative;
+    top: -5px;
+}
+
 @media (max-width: 1024px) {
     .url-shorenter-section {
         width: initial;
@@ -119,15 +125,19 @@ nav a {
     .page-footer p {
         margin: 0;
     }
+
     #copy-input {
         width: 75%;
     }
+
     .clippy-img {
         padding-top: 8px;
     }
+
     .brand-logo img {
         width: 85%;
     }
+
     h1.header {
         margin: 0;
         font-size: 3rem;
