@@ -1,0 +1,57 @@
+{% extends "base.html" %} {% block title %}Login{% endblock %} {% block body %}
+
+  <div class="container">
+    <div class="row">
+      <h3 class="center-align">{{ title }}</h3>
+
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages %}
+            <div class="col xl6 offset-xl3 m12 s12 card green">
+              <div class="card-content white-text">
+                <p><i class="material-icons">check</i><span>{{ message }}</span></p>
+              </div>
+            </div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+
+      <div class="form-error">
+        {% for field in form %}
+          {% for message in field.errors %}
+            <div class="col xl6 offset-xl3 m12 s12 card red">
+              <div class="card-content white-text">
+                <p><i class="material-icons">error</i><span>{{ message }}</span></p>
+              </div>
+            </div>
+          {% endfor %}
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="row">
+      <form class="col s12" action="/login" method="post">
+        {{ form.hidden_tag() }}
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">email</i>
+            {{ form.email }}
+            {{ form.email.label }}
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">lock</i>
+            {{ form.password }}
+            {{ form.password.label }}
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12 center-align">
+            {{ form.submit(class_="btn-large") }}
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+{% endblock %}
