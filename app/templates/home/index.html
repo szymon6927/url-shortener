@@ -11,49 +11,52 @@
     </div>
   </div>
   <div class="container">
-    <div class="url-shorenter-section">
+    <div class="row">
+      <div class="col xl6 offset-xl3 s12">
 
-      <div id="card-alert" class="card red" style="{{ 'display:block' if  error  else 'display:none' }}">
-        <div class="card-content white-text">
-          <p class="center-align"><i class="mdi-alert-error"></i> {{ error }}</p>
+        <div id="card-alert" class="card red" style="{{ 'display:block' if  error  else 'display:none' }}">
+          <div class="card-content white-text">
+            <p class="center-align"><i class="mdi-alert-error"></i> {{ error }}</p>
+          </div>
         </div>
-      </div>
 
-      <div class="row">
-        <form id="link-form" method="POST" class="col s12">
-          <div class="row">
-            <div class="input-field col s12">
-              <input id="phone" name="phone" type="text" class="validate">
-              <label for="phone">Phone</label>
+        <div class="row">
+          <form id="link-form" method="POST" class="col s12">
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="phone" name="phone" type="text" class="validate">
+                <label for="phone">Phone</label>
+              </div>
+              <div class="input-field col s12">
+                <input id="url_to_short" name="url_to_short" type="text" class="validate">
+                <label for="url_to_short">Url to short</label>
+              </div>
+              <div class="col s12 center-align">
+                <button class="btn waves-effect waves-light" type="submit">Skróć
+                  <i class="material-icons right">send</i>
+                </button>
+              </div>
             </div>
-            <div class="input-field col s12">
-              <input id="url_to_short" name="url_to_short" type="text" class="validate">
-              <label for="url_to_short">Url to short</label>
+          </form>
+
+
+          <div class="col s12 m12">
+            <div class="ajax-info deep-purple lighten-5 z-depth-1">
+              <div class="ajax-text">
+                <p><i class="material-icons">info_outline</i> INFO : <span></span></p>
+              </div>
+              <div class="progress">
+                <div class="indeterminate"></div>
+              </div>
             </div>
-            <div class="col s12 center-align">
-              <button class="btn waves-effect waves-light" type="submit">Skróć
-                <i class="material-icons right">send</i>
+            <div class="copy-input-wrapper z-depth-2">
+              <input id="copy-input" value="">
+              <button class="btn copy" data-clipboard-target="#copy-input"
+                      onclick="Materialize.toast('Link skopiowany', 4000)">
+                <img class="clippy-img" src="{{ url_for('static', filename='img/clippy.svg') }}"
+                     alt="Copy to clipboard">
               </button>
             </div>
-          </div>
-        </form>
-
-
-        <div class="col s12 m12">
-          <div class="ajax-info deep-purple lighten-5 z-depth-1">
-            <div class="ajax-text">
-              <p><i class="material-icons">info_outline</i> INFO : <span></span></p>
-            </div>
-            <div class="progress">
-              <div class="indeterminate"></div>
-            </div>
-          </div>
-          <div class="copy-input-wrapper z-depth-2">
-            <input id="copy-input" value="">
-            <button class="btn copy" data-clipboard-target="#copy-input"
-                    onclick="Materialize.toast('Link skopiowany', 4000)">
-              <img class="clippy-img" src="{{ url_for('static', filename='img/clippy.svg') }}" alt="Copy to clipboard">
-            </button>
           </div>
         </div>
       </div>
