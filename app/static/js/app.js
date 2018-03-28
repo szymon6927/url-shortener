@@ -4,20 +4,30 @@ function clearForm(form) {
 }
 
 $(document).ready(function () {
-
+  $(".dropdown-trigger").dropdown();
+  
   $('#customers').DataTable({
-    "order": [[ 1, "desc" ]],
+    "order": [[1, "desc"]],
     responsive: true,
-    scrollY:        '60vh',
+    scrollY: '60vh',
     scrollCollapse: true,
-    paging:         false
+    paging: false
   });
+
   $('#opened').DataTable({
-    "order": [[ 0, "desc" ]],
+    "order": [[0, "desc"]],
     responsive: true,
-    scrollY:        '60vh',
+    scrollY: '60vh',
     scrollCollapse: true,
-    paging:         false
+    paging: false
+  });
+
+  $('#all-users').DataTable({
+    "order": [[4, "desc"]],
+    responsive: true,
+    scrollY: '60vh',
+    scrollCollapse: true,
+    paging: false
   });
 
   $('#phone').mask('000-000-000');
