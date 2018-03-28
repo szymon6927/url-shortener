@@ -6,8 +6,20 @@ from .forms import LoginForm, RegistrationForm
 from .. import db
 from ..models import Users
 
+@auth.route('/allusers')
+@login_required
+def all_users():
+    """
+    Render the all users
+    """
+    users = Users.query.all()
+
+    return render_template('auth/all_users.html', title="Tabela wszystkich zarejestrowanych użytkowników",
+                           users=users)
+
 
 @auth.route('/register', methods=['GET', 'POST'])
+@login_required
 def register():
     """
     Handle requests to the /register route
