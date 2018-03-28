@@ -7,9 +7,9 @@
       {% with messages = get_flashed_messages() %}
         {% if messages %}
           {% for message in messages %}
-            <div class="col xl6 offset-xl3 m12 s12 card green">
+            <div class="col xl6 offset-xl3 m12 s12 card deep-purple">
               <div class="card-content white-text">
-                <p><i class="material-icons">check</i><span>{{ message }}</span></p>
+                <p><i class="material-icons">info</i><span>{{ message }}</span></p>
               </div>
             </div>
           {% endfor %}
@@ -30,7 +30,7 @@
     </div>
 
     <div class="row">
-      <form class="col s12" action="/login" method="post">
+      <form class="col xl6 offset-xl3 s12" action="/login" method="post">
         {{ form.hidden_tag() }}
         <div class="row">
           <div class="input-field col s12">

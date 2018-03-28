@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <div class="container">
+        <h4 class="center-align">{{ title }}</h4>
+        <table id="all-users" class="display">
+            <thead>
+            <tr>
+                <th>Imię</th>
+                <th>Nazwisko</th>
+                <th>Login</th>
+                <th>Adres e-mail</th>
+                <th>Utworzono</th>
+                <th>Admin</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for user in users|sort(attribute='created_at', reverse = True) %}
+                <tr>
+                    <td>{{ user.first_name if user.first_name else ' - ' }}</td>
+                    <td>{{ user.last_name if user.last_name else ' - ' }}</td>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.created_at }}</td>
+                    <td>{{ user.is_admin }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
