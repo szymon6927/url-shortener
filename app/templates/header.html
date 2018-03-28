@@ -5,23 +5,40 @@
     </a>
     <ul class="right hide-on-med-and-down">
       <li><a href="{{ url_for('home.homepage') }}">Home</a></li>
-      <li><a href="{{ url_for('customers.all_customers') }}">Customers</a></li>
-      <li><a href="{{ url_for('opened.opened') }}">Opened</a></li>
-      <li><a href="{{ url_for('auth.login') }}">Login</a></li>
-      <li><a href="{{ url_for('auth.register') }}">Register</a></li>
       {% if current_user.is_authenticated %}
-        <li><a><i class="material-icons left">account_circle</i>  Hi, {{ current_user.username }}!</a></li>
+        <li><a href="{{ url_for('customers.all_customers') }}">Customers</a></li>
+        <li><a href="{{ url_for('opened.opened') }}">Opened</a></li>
+        <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Settigns<i class="material-icons right">arrow_drop_down</i></a>
+          <ul class="dropdown-content">
+            <li><a href="{{ url_for('auth.register') }}">Add user</a></li>
+            <li><a href="{{ url_for('auth.all_users') }}">Show all user</a></li>
+          </ul>
+        </li>
+        <li class="nav-user-button"><a><i class="material-icons left">account_circle</i> Hi, {{ current_user.username }}!</a>
+        </li>
         <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
       {% else %}
+        <li><a href="{{ url_for('auth.login') }}">Login</a></li>
       {% endif %}
     </ul>
 
     <ul id="nav-mobile" class="side-nav" style="transform: translateX(-100%);">
       <li><a href="{{ url_for('home.homepage') }}">Home</a></li>
-      <li><a href="{{ url_for('customers.all_customers') }}">Customers</a></li>
-      <li><a href="{{ url_for('opened.opened') }}">Opened</a></li>
-      <li><a href="{{ url_for('auth.login') }}">Login</a></li>
-      <li><a href="{{ url_for('auth.register') }}">Register</a></li>
+      {% if current_user.is_authenticated %}
+        <li><a href="{{ url_for('customers.all_customers') }}">Customers</a></li>
+        <li><a href="{{ url_for('opened.opened') }}">Opened</a></li>
+        <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Settigns<i class="material-icons right">arrow_drop_down</i></a>
+          <ul class="dropdown-content">
+            <li><a href="{{ url_for('auth.register') }}">Add user</a></li>
+            <li><a href="{{ url_for('auth.all_users') }}">Show all user</a></li>
+          </ul>
+        </li>
+        <li class="nav-user-button"><a><i class="material-icons left">account_circle</i> Hi, {{ current_user.username }}!</a>
+        </li>
+        <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
+      {% else %}
+        <li><a href="{{ url_for('auth.login') }}">Login</a></li>
+      {% endif %}
     </ul>
     <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
   </div>
