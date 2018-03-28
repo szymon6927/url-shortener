@@ -5,7 +5,7 @@ function clearForm(form) {
 
 $(document).ready(function () {
   $(".dropdown-trigger").dropdown();
-  
+
   $('#customers').DataTable({
     "order": [[1, "desc"]],
     responsive: true,
