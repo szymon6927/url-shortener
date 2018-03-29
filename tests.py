@@ -41,7 +41,15 @@ class TestBase(TestCase):
         db.session.remove()
         db.drop_all()
 
+
 class TestModels(TestBase):
+
+    def test_users_model(self):
+        """
+        Test number of records in Employee table
+        """
+        self.assertEqual(Users.query.count(), 2)
+
     def test_links_model(self):
         """
         Test number of records in links table
