@@ -2,29 +2,32 @@
 {% block title %}Opened{% endblock %}
 
 {% block body %}
-    <div class="container">
-        <h4 class="center-align">{{ title }}</h4>
-        <table id="opened" class="display">
-            <thead>
-            <tr>
-                <th>Kiedy otwarty</th>
-                <th>Telefon</th>
-                <th>GA Client ID</th>
-                <th>Link hash</th>
-                <th>IP</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for open in opened|sort(attribute='open_time', reverse = True) %}
-                <tr>
-                    <td>{{ open.open_time }}</td>
-                    <td>{{ open.client_phone }}</td>
-                    <td>{{ open.ga_client_id }}</td>
-                    <td>{{ open.link_hash }}</td>
-                    <td>{{ open.ip }}</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+  <div class="container">
+    <h4 class="center-align">{{ title }}</h4>
+    <div class="col s12 right mb16">
+      <a class="btn" href="/generatecsv">Export to CSV</a>
     </div>
+    <table id="opened" class="display">
+      <thead>
+      <tr>
+        <th>Kiedy otwarty</th>
+        <th>Telefon</th>
+        <th>GA Client ID</th>
+        <th>Link hash</th>
+        <th>IP</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for open in opened|sort(attribute='open_time', reverse = True) %}
+        <tr>
+          <td>{{ open.open_time }}</td>
+          <td>{{ open.client_phone }}</td>
+          <td>{{ open.ga_client_id }}</td>
+          <td>{{ open.link_hash }}</td>
+          <td>{{ open.ip }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
 {% endblock %}
