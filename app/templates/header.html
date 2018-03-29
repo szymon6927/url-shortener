@@ -7,7 +7,7 @@
       <li><a href="{{ url_for('home.homepage') }}">Home</a></li>
       {% if current_user.is_authenticated %}
         <li><a href="{{ url_for('customers.all_customers') }}">Customers</a></li>
-        <li><a href="{{ url_for('opened.opened') }}">Opened</a></li>
+        <li><a href="{{ url_for('opened.show_opened') }}">Opened</a></li>
         <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Settigns<i class="material-icons right">arrow_drop_down</i></a>
           <ul class="dropdown-content">
             <li><a href="{{ url_for('auth.register') }}">Add user</a></li>
@@ -26,7 +26,7 @@
       <li><a href="{{ url_for('home.homepage') }}">Home</a></li>
       {% if current_user.is_authenticated %}
         <li><a href="{{ url_for('customers.all_customers') }}">Customers</a></li>
-        <li><a href="{{ url_for('opened.opened') }}">Opened</a></li>
+        <li><a href="{{ url_for('opened.show_opened') }}">Opened</a></li>
         <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Settigns<i class="material-icons right">arrow_drop_down</i></a>
           <ul class="dropdown-content">
             <li><a href="{{ url_for('auth.register') }}">Add user</a></li>
