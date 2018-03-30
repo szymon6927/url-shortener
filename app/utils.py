@@ -6,19 +6,6 @@ from urllib.request import HTTPError
 from urllib.request import Request
 from urllib.request import urlopen
 
-def get_domain(link):
-    new_link = ""
-    if "https://" in link:
-        new_link = link.replace("https://","")
-
-    if "http://" in link:
-        new_link = link.replace("http://","")
-
-    if "www." in link:
-        new_link = link.replace("www.", "")
-
-    return new_link
-
 
 def random_string_generator(size):
     # This function generates random string. It takes an integer as parameter,
@@ -34,10 +21,10 @@ def url_checker(long_url):
     # below 400, something like 200, 301 etc then it's valid. Otherwise, the
     # URL is said to be dead.
     try:
-        request = Request(long_url, None, {
-                          'User-agent': 'Mozilla/5.0 (Windows; U; Windows NT 5.1; de; rv:1.9.1.5) Gecko/20091102 Firefox/3.5.5'})
-        code = urlopen(request).code
-        if (code < 400):
+        url_request = Request(long_url, None, {
+            'User-agent': 'Mozilla/5.0 (Windows; U; Windows NT 5.1; de; rv:1.9.1.5) Gecko/20091102 Firefox/3.5.5'})
+        code = urlopen(url_request).code
+        if code < 400:
             return True
         else:
             return False
@@ -45,13 +32,3 @@ def url_checker(long_url):
         # We are handling HTTPError here. If HTTPError is raised, then the URL
         # is dead.
         return False
-    else:
-        return False
-
-
-def number_of_generated_short_url():
-    # This function counts how many short URL is stored in the database at a
-    # moment.
-
-    number = Urls.query.count()
-    return number
